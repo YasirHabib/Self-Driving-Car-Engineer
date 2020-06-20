@@ -36,10 +36,10 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 
 After experimentation, the following color channels and thresholds did well identifying the lane lines in the provided test images:
 
-The S Channel from the HLS color space, with a min threshold of 200 and a max threshold of 255, did well identifying white and yellow lane lines, but missed lane lines with shadows.
-The L Channel from the LUV color space, with a min threshold of 255 and a max threshold of 255, picked up only the white lane lines.
-The B channel from the Lab color space, with a min threshold of 150 and an upper threshold of 220, did well in identifying only the yellow lines.
-A combined binary threshold based on the three above mentioned binary thresholds is used which does a good job of highlighting both the white and yellow lane lines.
+- The S Channel from the HLS color space, with a min threshold of 200 and a max threshold of 255, did well identifying white and yellow lane lines, but missed lane lines with shadows.
+- The L Channel from the LUV color space, with a min threshold of 255 and a max threshold of 255, picked up only the white lane lines.
+- The B channel from the Lab color space, with a min threshold of 150 and an upper threshold of 220, did well in identifying only the yellow lines.
+- A combined binary threshold based on the three above mentioned binary thresholds is used which does a good job of highlighting both the white and yellow lane lines.
 
 ![image](https://user-images.githubusercontent.com/24778538/85209620-390acd00-b331-11ea-906a-e02ae555ad6d.png)
 
