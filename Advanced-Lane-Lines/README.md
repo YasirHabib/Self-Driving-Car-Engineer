@@ -21,7 +21,7 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 ![image](https://user-images.githubusercontent.com/24778538/85175933-8c691680-b270-11ea-933b-9a89ceb3a41a.png)
 
-I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function. I also applied perspective transform on the chessboard images and obtained the results: 
+I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function. I applied this distortion correction to the test image using the `cv2.undistort()` function. I also applied perspective transform on the chessboard images and obtained the results: 
 
 ![image](https://user-images.githubusercontent.com/24778538/85176596-15cd1880-b272-11ea-808b-ba023b19ef8f.png)
 
@@ -34,7 +34,12 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+After experimentation, the following color channels and thresholds did well identifying the lane lines in the provided test images:
+
+The S Channel from the HLS color space, with a min threshold of 200 and a max threshold of 255, did well identifying white and yellow lane lines, but missed lane lines with shadows.
+The L Channel from the LUV color space, with a min threshold of 255 and a max threshold of 255, picked up only the white lane lines.
+The B channel from the Lab color space, with a min threshold of 150 and an upper threshold of 220, did well in identifying only the yellow lines.
+A combined binary threshold based on the three above mentioned binary thresholds is used which does a good job of highlighting both the white and yellow lane lines.
 
 ![image](https://user-images.githubusercontent.com/24778538/85209620-390acd00-b331-11ea-906a-e02ae555ad6d.png)
 
