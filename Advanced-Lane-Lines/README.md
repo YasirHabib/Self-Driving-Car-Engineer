@@ -81,9 +81,9 @@ This has been implemented in cells 14, 15 & 16 using the functions `measure_curv
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+This has been implemented in cells 17. Here is an example of the original & final image:
 
-![alt text][image6]
+![image](https://user-images.githubusercontent.com/24778538/85452250-99e51000-b592-11ea-9cbe-188a82c33be2.png)
 
 ---
 
