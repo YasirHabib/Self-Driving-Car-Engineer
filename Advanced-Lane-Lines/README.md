@@ -99,4 +99,11 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+#### Problems / issues:
+The only major issue faced is determining a binary threshold that would work in all conditions. 
+
+#### Likely failure:
+When the car passes in areas where there is shadows from the trees on the side.
+
+#### Improvement
+To determine a binary threshold that produces good results under all conditions such as shadows, various light & weather conditions, dim lane lines etc.
