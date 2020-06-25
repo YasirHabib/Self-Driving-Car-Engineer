@@ -91,7 +91,7 @@ This has been implemented in cells 17. Here is an example of the original & fina
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./test_videos_output/project_video.mp4)
 
 ---
 
@@ -105,5 +105,5 @@ The only major issue faced is determining a binary threshold that would work in 
 #### Likely failure:
 When the car passes in areas where there is shadows from the trees on the side.
 
-#### Improvement
+#### Improvement:
 To determine a binary threshold that produces good results under all conditions such as shadows, various light & weather conditions, dim lane lines etc.
