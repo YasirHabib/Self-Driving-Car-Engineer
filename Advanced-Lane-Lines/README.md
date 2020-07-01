@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image. 
 
-I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.
+I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image. `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.
 
 ![image](https://user-images.githubusercontent.com/24778538/85175933-8c691680-b270-11ea-933b-9a89ceb3a41a.png)
 
@@ -71,19 +71,19 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+I implemented sliding window, search from prior & fit polynomial as below:
 
-![alt text][image5]
+![image](https://user-images.githubusercontent.com/24778538/85254365-07d8ec80-b458-11ea-8776-aca4b07e8d54.png)
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+This has been implemented in cells 14, 15 & 16 using the functions `measure_curvature_real()`, `warp_lane()` & `draw_result()`.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+This has been implemented in cells 17. Here is an example of the original & final image:
 
-![alt text][image6]
+![image](https://user-images.githubusercontent.com/24778538/85452250-99e51000-b592-11ea-9cbe-188a82c33be2.png)
 
 ---
 
@@ -91,7 +91,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./test_videos_output/project_video.mp4)
 
 ---
 
@@ -99,4 +99,11 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+#### Problems / issues:
+The only major issue faced is determining a binary threshold that would work in all conditions. 
+
+#### Likely failure:
+When the car passes in areas where there is shadows from the trees on the side.
+
+#### Improvement:
+To determine a binary threshold that produces good results under all conditions such as shadows, various light & weather conditions, dim lane lines etc.
